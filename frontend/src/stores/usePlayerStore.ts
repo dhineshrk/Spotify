@@ -42,12 +42,12 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
 		// 		activity: `Playing ${song.title} by ${song.artist}`,
 		// 	});
 		// }
-		// set({
-		// 	queue: songs,
-		// 	currentSong: song,
-		// 	currentIndex: startIndex,
-		// 	isPlaying: true,
-		// });
+		set({
+			queue: songs,
+			currentSong: song,
+			currentIndex: startIndex,
+			isPlaying: true,
+		});
 	},
 
 	setCurrentSong: (song: Song | null) => {
@@ -61,18 +61,18 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
 		// 	});
 		// }
 
-		// const songIndex = get().queue.findIndex((s) => s._id === song._id);
-		// set({
-		// 	currentSong: song,
-		// 	isPlaying: true,
-		// 	currentIndex: songIndex !== -1 ? songIndex : get().currentIndex,
-		// });
+		const songIndex = get().queue.findIndex((s) => s._id === song._id);
+		set({
+			currentSong: song,
+			isPlaying: true,
+			currentIndex: songIndex !== -1 ? songIndex : get().currentIndex,
+		});
 	},
 
 	togglePlay: () => {
 		const willStartPlaying = !get().isPlaying;
 
-		const currentSong = get().currentSong;
+		// const currentSong = get().currentSong;
 		// const socket = useChatStore.getState().socket;
 		// if (socket.auth) {
 		// 	socket.emit("update_activity", {
@@ -82,16 +82,15 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
 		// 	});
 		// }
 
-		// set({
-		// 	isPlaying: willStartPlaying,
-		// });
+		set({
+			isPlaying: willStartPlaying,
+		});
 	},
 
 	playNext: () => {
 		const { currentIndex, queue } = get();
 		const nextIndex = currentIndex + 1;
 
-		// if there is a next song to play, let's play it
 		if (nextIndex < queue.length) {
 			const nextSong = queue[nextIndex];
 
@@ -103,11 +102,11 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
 			// 	});
 			// }
 
-			// set({
-			// 	currentSong: nextSong,
-			// 	currentIndex: nextIndex,
-			// 	isPlaying: true,
-			// });
+			set({
+				currentSong: nextSong,
+				currentIndex: nextIndex,
+				isPlaying: true,
+			});
 		} else {
 			// no next song
 			set({ isPlaying: false });
@@ -137,11 +136,11 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
 			// 	});
 			// }
 
-			// set({
-			// 	currentSong: prevSong,
-			// 	currentIndex: prevIndex,
-			// 	isPlaying: true,
-			// });
+			set({
+				currentSong: prevSong,
+				currentIndex: prevIndex,
+				isPlaying: true,
+			});
 		} else {
 			// no prev song
 			set({ isPlaying: false });
