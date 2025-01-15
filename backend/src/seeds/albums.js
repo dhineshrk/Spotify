@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import Song from "../models/songModel.js";
-import Album from "../models/albumModel.js";
+import  Song  from "../models/songModel.js";
+import  Album  from "../models/albumModel.js";
 import { config } from "dotenv";
 
 config();
@@ -13,13 +13,13 @@ const seedDatabase = async () => {
 		await Album.deleteMany({});
 		await Song.deleteMany({});
 
-		// First, create all Songs
+		// First, create all songs
 		const createdSongs = await Song.insertMany([
 			{
 				title: "City Rain",
 				artist: "Urban Echo",
 				imageUrl: "/cover-images/7.jpg",
-				audioUrl: "/Songs/7.mp3",
+				audioUrl: "/songs/7.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 39, // 0:39
 			},
@@ -27,7 +27,7 @@ const seedDatabase = async () => {
 				title: "Neon Lights",
 				artist: "Night Runners",
 				imageUrl: "/cover-images/5.jpg",
-				audioUrl: "/Songs/5.mp3",
+				audioUrl: "/songs/5.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 36, // 0:36
 			},
@@ -35,7 +35,7 @@ const seedDatabase = async () => {
 				title: "Urban Jungle",
 				artist: "City Lights",
 				imageUrl: "/cover-images/15.jpg",
-				audioUrl: "/Songs/15.mp3",
+				audioUrl: "/songs/15.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 36, // 0:36
 			},
@@ -43,7 +43,7 @@ const seedDatabase = async () => {
 				title: "Neon Dreams",
 				artist: "Cyber Pulse",
 				imageUrl: "/cover-images/13.jpg",
-				audioUrl: "/Songs/13.mp3",
+				audioUrl: "/songs/13.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 39, // 0:39
 			},
@@ -51,7 +51,7 @@ const seedDatabase = async () => {
 				title: "Summer Daze",
 				artist: "Coastal Kids",
 				imageUrl: "/cover-images/4.jpg",
-				audioUrl: "/Songs/4.mp3",
+				audioUrl: "/songs/4.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 24, // 0:24
 			},
@@ -59,7 +59,7 @@ const seedDatabase = async () => {
 				title: "Ocean Waves",
 				artist: "Coastal Drift",
 				imageUrl: "/cover-images/9.jpg",
-				audioUrl: "/Songs/9.mp3",
+				audioUrl: "/songs/9.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 28, // 0:28
 			},
@@ -67,7 +67,7 @@ const seedDatabase = async () => {
 				title: "Crystal Rain",
 				artist: "Echo Valley",
 				imageUrl: "/cover-images/16.jpg",
-				audioUrl: "/Songs/16.mp3",
+				audioUrl: "/songs/16.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 39, // 0:39
 			},
@@ -75,7 +75,7 @@ const seedDatabase = async () => {
 				title: "Starlight",
 				artist: "Luna Bay",
 				imageUrl: "/cover-images/10.jpg",
-				audioUrl: "/Songs/10.mp3",
+				audioUrl: "/songs/10.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 30, // 0:30
 			},
@@ -83,7 +83,7 @@ const seedDatabase = async () => {
 				title: "Stay With Me",
 				artist: "Sarah Mitchell",
 				imageUrl: "/cover-images/1.jpg",
-				audioUrl: "/Songs/1.mp3",
+				audioUrl: "/songs/1.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 46, // 0:46
 			},
@@ -91,7 +91,7 @@ const seedDatabase = async () => {
 				title: "Midnight Drive",
 				artist: "The Wanderers",
 				imageUrl: "/cover-images/2.jpg",
-				audioUrl: "/Songs/2.mp3",
+				audioUrl: "/songs/2.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 41, // 0:41
 			},
@@ -99,7 +99,7 @@ const seedDatabase = async () => {
 				title: "Moonlight Dance",
 				artist: "Silver Shadows",
 				imageUrl: "/cover-images/14.jpg",
-				audioUrl: "/Songs/14.mp3",
+				audioUrl: "/songs/14.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 27, // 0:27
 			},
@@ -107,7 +107,7 @@ const seedDatabase = async () => {
 				title: "Lost in Tokyo",
 				artist: "Electric Dreams",
 				imageUrl: "/cover-images/3.jpg",
-				audioUrl: "/Songs/3.mp3",
+				audioUrl: "/songs/3.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 24, // 0:24
 			},
@@ -115,7 +115,7 @@ const seedDatabase = async () => {
 				title: "Neon Tokyo",
 				artist: "Future Pulse",
 				imageUrl: "/cover-images/17.jpg",
-				audioUrl: "/Songs/17.mp3",
+				audioUrl: "/songs/17.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 39, // 0:39
 			},
@@ -123,53 +123,53 @@ const seedDatabase = async () => {
 				title: "Purple Sunset",
 				artist: "Dream Valley",
 				imageUrl: "/cover-images/12.jpg",
-				audioUrl: "/Songs/12.mp3",
+				audioUrl: "/songs/12.mp3",
 				plays: Math.floor(Math.random() * 5000),
 				duration: 17, // 0:17
 			},
 		]);
 
-		// Create Albums with references to Song IDs
-		const Albums = [
+		// Create albums with references to song IDs
+		const albums = [
 			{
 				title: "Urban Nights",
 				artist: "Various Artists",
-				imageUrl: "/Albums/1.jpg",
+				imageUrl: "/albums/1.jpg",
 				releaseYear: 2024,
-				Songs: createdSongs.slice(0, 4).map((Song) => Song._id),
+				songs: createdSongs.slice(0, 4).map((song) => song._id),
 			},
 			{
 				title: "Coastal Dreaming",
 				artist: "Various Artists",
-				imageUrl: "/Albums/2.jpg",
+				imageUrl: "/albums/2.jpg",
 				releaseYear: 2024,
-				Songs: createdSongs.slice(4, 8).map((Song) => Song._id),
+				songs: createdSongs.slice(4, 8).map((song) => song._id),
 			},
 			{
 				title: "Midnight Sessions",
 				artist: "Various Artists",
-				imageUrl: "/Albums/3.jpg",
+				imageUrl: "/albums/3.jpg",
 				releaseYear: 2024,
-				Songs: createdSongs.slice(8, 11).map((Song) => Song._id),
+				songs: createdSongs.slice(8, 11).map((song) => song._id),
 			},
 			{
 				title: "Eastern Dreams",
 				artist: "Various Artists",
-				imageUrl: "/Albums/4.jpg",
+				imageUrl: "/albums/4.jpg",
 				releaseYear: 2024,
-				Songs: createdSongs.slice(11, 14).map((Song) => Song._id),
+				songs: createdSongs.slice(11, 14).map((song) => song._id),
 			},
 		];
 
-		// Insert all Albums
-		const createdAlbums = await Album.insertMany(Albums);
+		// Insert all albums
+		const createdAlbums = await Album.insertMany(albums);
 
-		// Update Songs with their Album references
+		// Update songs with their album references
 		for (let i = 0; i < createdAlbums.length; i++) {
-			const Album = createdAlbums[i];
-			const AlbumSongs = Albums[i].Songs;
+			const album = createdAlbums[i];
+			const albumSongs = albums[i].songs;
 
-			await Song.updateMany({ _id: { $in: AlbumSongs } }, { AlbumId: Album._id });
+			await Song.updateMany({ _id: { $in: albumSongs } }, { albumId: album._id });
 		}
 
 		console.log("Database seeded successfully!");

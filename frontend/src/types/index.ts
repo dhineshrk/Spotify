@@ -6,8 +6,8 @@ export interface Song {
 	imageUrl: string;
 	audioUrl: string;
 	duration: number;
-	createdAt: string;
-	updatedAt: string;
+	createdAt: Date;
+	updatedAt: Date;
 }
 
 export interface Album {
@@ -31,8 +31,8 @@ export interface Message {
 	senderId: string;
 	receiverId: string;
 	content: string;
-	createdAt: string;
-	updatedAt: string;
+	createdAt: Date;
+	updatedAt: Date;
 }
 
 export interface User {

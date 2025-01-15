@@ -7,7 +7,7 @@ const albumSchema = new mongoose.Schema({
     releaseYear: { type: String,required: true },
     songs: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Song"
+        ref: "Song",
     }]
 },
     { timestamps: true }
