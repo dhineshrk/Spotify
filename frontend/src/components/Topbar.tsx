@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const Topbar = () => {
 
     const {isAdmin} = useAuthStore();
-    console.log({isAdmin})
+    // console.log({isAdmin})
 
 
   return (
