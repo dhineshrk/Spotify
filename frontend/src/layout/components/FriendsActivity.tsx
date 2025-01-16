@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 
 const FriendsActivity = () => {
 
-  const { users, isLoading, error, fetchUsers, onlineUsers, userActivities } = useChatStore();
+  const { users, fetchUsers, onlineUsers, userActivities } = useChatStore();
   const {user} = useUser();
 
   useEffect(() => {
