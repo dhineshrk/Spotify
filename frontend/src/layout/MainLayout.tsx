@@ -6,6 +6,7 @@ import AudioPlayer from "./components/AudioPlayer";
 import { useEffect, useState } from "react";
 import PlaybackControls from "./components/PlaybackControls";
 
+
 const MainLayout = () => {
 	const [isMobile, setIsMobile] = useState(false);
 
