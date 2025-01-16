@@ -31,8 +31,8 @@ export interface Message {
 	senderId: string;
 	receiverId: string;
 	content: string;
-	createdAt: Date;
-	updatedAt: Date;
+	createdAt: String;
+	updatedAt: String;
 }
 
 export interface User {
