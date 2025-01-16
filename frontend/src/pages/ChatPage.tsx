@@ -70,7 +70,7 @@ const ChatPage = () => {
 											>
 												<p className='text-sm'>{message.content}</p>
 												<span className='text-xs text-zinc-300 mt-1 block'>
-													{(message.createdAt)}
+													{formatTime(message.createdAt)}
 												</span>
 											</div>
 										</div>
